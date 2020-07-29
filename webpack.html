@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>【知识点】		
+ 什么是webpack? 前端模块化打包工具
+		现代js应用的静态模块打包工具
+			sass、less等等，浏览器不支持，需要编译成css
+			es6编译成es5
+打包工具：grunt/gulp/webpack/rollup(vue源码构建方法)
+		
+【补】什么是前端模块化？
+		模块化规范：AMD、CMD、CommonJS、ES6(!浏览器支持)
+		
+		webpack也可以把不同的前端模块化规范转换为浏览器可以识别的模块化规范
+		webpack处理模块之间的依赖关系（js、css等都当做模块）
+		TS->JS
+		
+与grunt和gulp的对比？
+			grunt和gulp的核心是task（称作：自动化任务管理工具）
+			我们配置对应的事务，其一次来执行这些任务（ES6、TS转换、图片压缩、sass等等）
+			
+			如果是模块化的话，用webpack比较好
+		
+		webpack本身依赖于node环境 npm:node packges manager
+		(npm):node为了正常执行很多代码，必须包含各种依赖的包，这些包由npm工具进行管理
+			
+			文件夹
+			--src
+			--dist(distribution)
+		
+webpack的配置
+		准备：
+			path路径 node语法
+			使用node语法前，需要进行初始化 
+			npm init 生成package.json （如果需要单独依赖node环境，一般都需要这个文件）
+			npm install 根据package.json安装一些依赖
+		
+		在webpack.config.js文件中进行配置
+			const path=require("path")//node包里面的path包
+			module.export={
+				entry:
+				output:{
+					path:path.resolve(_dirname,"dist")//_dirname获取当前文件所在路径 resolve函数进行路径拼接
+					filename:"bundle.js"
+				}
+			}
+			//配置之后 输入webpack命令 直接打包到对应目录的对应文件
+			//入口文件为main.js(打包main.js引用的依赖)
+		
+		webpack命令与npm run build 映射
+			在package.json文件中 script 中配置 build:"webpack"
+			在这种情况下，优先使用本地webpack（项目中安装的webpack 可以和全局的webpack版本不一样）
+			只要是在终端里面敲webpack 都是优先用全局的 所以需要配置
+			因为：script脚本运行的时候，优先会在node_modues/bin文件中找
+		
+		开发时依赖：devDependencies --save-dev
+		运行时依赖：devDependencies
+		
+webpack中的loder
+		webpack 本身不支持css/sass/es6等的转换
+		不同的处理方法对应不同的loder
+			[css-loder&style-loder] CSS：将css文件也当做模块，打包到bundle.js文件中
+					mian.js中依赖css文件 require(./cssname.css)
+					loder安装之后，需要配置(顺序，读取多个loder的时候从右向左读，先用的放在右边)
+			[less-loader]less:要先安装less 	安装+配置
+			[url-loder]:url加载的文件，图片base_64
+						图片大小小于limit值的时候，会将图片格式编译成base_64字符串格式
+						如果大于limit需要安装file-loder 不需要配置 
+						文件打包之后会在dist文件夹，需要在output配置publicPath:"dist/"
+						配置图片的公共命名方式option:{name:}
+			ES6语法处理：转换为ES5需要babel工具 babel-loder babel-core babel-preset-es2015
+	
+【vue相关内容】		
+		webpack使用vue
+			npm install vue --save【运行时】
+			安装之后 import Vue form "vue"
+			
+			runtime-only:代码中不可以有任何的template
+			runtime-complier：代码中可以有template 有complier可以编译template
+			如果出现错误runtime-only则需要在webpack中进行配置使用不一样的vue版本
+	
+	template和el的关系:
+	如果在vue内部定义了template 解析代码的时候，会将template中的东西直接替换掉el对应的东西
+	定义外部的组件
+	
+	在vue中 complete注册组件 将注册的组件 放在template里面<app/>
+	将组件中的内容放到一个单独的js文件中，进行模块化操作 export import
+	组件数
+
+配置vue的loder
+[vue-loder&vue-template-compiler]安装后配置
+
+【plugin】
+	插件，通常是对现有的框架进行拓展
+	对webpack 的现有功能进行各种拓展
+	与loder的区别：
+	loder主要用于转换某些类型的模块，是一个转换器
+	plugin是插件，它是对webpack本身的拓展，是一个拓展器
+
+安装后配置：
+	版权申明：banner
+	打包html.js文件到dist文件夹里面：HtmlWebpackPlugin插件
+</div>	
+<div>
+			 【面试题】
+	
+</div>
+	</body>
+</html>

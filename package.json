@@ -1,0 +1,22 @@
+{
+  "name": "webpackstudy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Verahuan/webpack-study-practice.git"
+  },
+  "author": "verahuan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Verahuan/webpack-study-practice/issues"
+  },
+  "homepage": "https://github.com/Verahuan/webpack-study-practice#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
+  }
+}
