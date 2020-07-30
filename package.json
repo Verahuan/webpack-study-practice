@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {//配置对象 npm run 运行的命令 优先在项目中寻找webpack
+  "scripts": {
     "bundle": "webpack"
   },
   "repository": {
@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Verahuan/webpack-study-practice#readme",
   "devDependencies": {
+    "css-loader": "^4.1.0",
+    "file-loader": "^6.0.0",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
     "webpack-cli": "^3.3.12"
   }
 }

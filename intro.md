@@ -11,7 +11,6 @@
 ## webpack的性能优化相关点
 打包模式改为：mode:"production"
 ## 目前的运行方式
- 
  webpack index.js(全局)
  npm run bundle(局部/在scripts对象中配置)
  npx webpack index.js
@@ -19,11 +18,15 @@
  webpack-cli的作用：使我们可以在命令行中实行webpack
  
 ## 模块规范
+什么是模块：
+```
 	ES6 Moudle
 	ES Moudles模块引入方式
 		import  模块 from 	
 	commonjs
 	AMD
 	CMD
+	```
+
 ## 附带的git知识
 Git命令_git fetch、git merge、git pull、FETCH_HEAD、HEAD
