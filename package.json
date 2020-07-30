@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {//配置对象 npm run 运行的命令 优先在项目中寻找webpack
+    "bundle": "webpack"
   },
   "repository": {
     "type": "git",
