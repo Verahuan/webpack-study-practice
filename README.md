@@ -27,7 +27,8 @@
 	commonjs
 	AMD
 	CMD
-	```
+```
+
 ## loader是什么？
 一种打包的方案，当webpack遇到非js文件就需要加载loader
 静态文件打包：
