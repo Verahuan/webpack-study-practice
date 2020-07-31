@@ -39,11 +39,23 @@
 	sass/less ：sass-loader
 	自动添加前缀：postcss-loader(在配置的时候添加autoProfixer 插件)
 ## css打包的模块化
-由于有时候css文件中也会引入sass文件等，可以在option部分添加 importantLoaders:2
+	由于有时候css文件中也会引入sass文件等，可以在option部分添加 importantLoaders:2
 同时，有时候共同添加的样式，并不想要所有的js文件都使用，那么就可以添加module：true 使得每个对象独立
 
 ## 打包字体
- 当引入外部字体的时候，webpack没办法识别，同样需要用file-loder进行配置（文件后缀还是要改的哈==）
+	当引入外部字体的时候，webpack没办法识别，同样需要用file-loder进行配置（文件后缀还是要改的哈==）
 
+## plugin 可以在打包的某个时刻为我们做一些事情（类似于在打包的生命周期中）
+【打包之前】cleanwenpackplugin打包之前删除文件夹中的内容 
+引入方式稍微有点不同
+```
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+```
+## webpack打包后的文件夹中自动生成index.html文件
+【打包之后】htmlWebpackPlugin 会在打包结束之后自动生成一个html文件，并且，自动引入打包生成的html文件
+	并且可以为打包生成的html文件指定模板
+	web-webpack-plugin 比html更好用
+## output entry配置
+	output 配置publicpath可以给script标签添加公共的地址
 ## 附带的git知识
-Git命令_git fetch、git merge、git pull、FETCH_HEAD、HEAD
+	Git命令_git fetch、git merge、git pull、FETCH_HEAD、HEAD
